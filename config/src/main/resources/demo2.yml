@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo2
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+server:
+  port: 8082

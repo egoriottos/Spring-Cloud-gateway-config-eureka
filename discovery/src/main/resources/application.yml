@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery
+  config:
+    import: 'optional:configserver:http://localhost:8888'  # Подключаемся к Config Server
+#  cloud:
+#    config:
+#      uri: http://localhost:8888  # Дублирование, но для совместимости
+#      fail-fast: true            # Ждать Config Server при старте
+#      retry:
+#        initial-interval: 2000   # Интервал между попытками (мс)
+#        max-attempts: 5          # Максимум попыток

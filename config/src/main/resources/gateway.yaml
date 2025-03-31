@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: demo1
+          uri: http://localhost:8080  # Адрес сервиса demo1
+          predicates:
+            - Path=/demo1/**         # Ловим запросы, начинающиеся с /demo1
+          filters:
+            - StripPrefix=1
+
+        - id: demo2
+          uri: http://localhost:8082
+          predicates:
+            - Path=/demo2/**
+          filters:
+            - StripPrefix=1
+
+        - id: demo3
+          uri: http://localhost:8086
+          predicates:
+            - Path=/demo3/**
+          filters:
+            - StripPrefix=1
+
+
+
+  application:
+    name: gateway
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+server:
+  port: 8090
+  forward-headers-strategy: framework
